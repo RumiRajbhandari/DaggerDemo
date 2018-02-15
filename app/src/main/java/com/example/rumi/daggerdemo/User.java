@@ -10,9 +10,8 @@ public class User {
     public String name;
     public String location;
 
-    @Inject
-    public User(){
 
+    public User(){
     }
     public User(String name, String location) {
         this.name = name;

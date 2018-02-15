@@ -8,5 +8,6 @@ import dagger.Component;
 @Component(modules = {UserModule.class})
 public interface AppComponent {
     void inject(MainActivity mainActivity);
+    void inject(SubActivity subActivity);
 
 }

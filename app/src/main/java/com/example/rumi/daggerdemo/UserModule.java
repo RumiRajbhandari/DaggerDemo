@@ -9,7 +9,7 @@ import dagger.Provides;
 @Module
 public class UserModule {
     @Provides
-    public User getUser(){
-        return new User("rumi","ktm");
+    public User getUser1(){
+        return new User("gerrarrd","anfield");
     }
 }
