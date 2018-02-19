@@ -7,13 +7,18 @@ import javax.inject.Provider;
 public final class SubActivity_MembersInjector implements MembersInjector<SubActivity> {
   private final Provider<User> user1Provider;
 
-  public SubActivity_MembersInjector(Provider<User> user1Provider) {
+  private final Provider<User2> user2Provider;
+
+  public SubActivity_MembersInjector(Provider<User> user1Provider, Provider<User2> user2Provider) {
     assert user1Provider != null;
     this.user1Provider = user1Provider;
+    assert user2Provider != null;
+    this.user2Provider = user2Provider;
   }
 
-  public static MembersInjector<SubActivity> create(Provider<User> user1Provider) {
-    return new SubActivity_MembersInjector(user1Provider);
+  public static MembersInjector<SubActivity> create(
+      Provider<User> user1Provider, Provider<User2> user2Provider) {
+    return new SubActivity_MembersInjector(user1Provider, user2Provider);
   }
 
   @Override
@@ -22,9 +27,14 @@ public final class SubActivity_MembersInjector implements MembersInjector<SubAct
       throw new NullPointerException("Cannot inject members into a null reference");
     }
     instance.user1 = user1Provider.get();
+    instance.user2 = user2Provider.get();
   }
 
   public static void injectUser1(SubActivity instance, Provider<User> user1Provider) {
     instance.user1 = user1Provider.get();
+  }
+
+  public static void injectUser2(SubActivity instance, Provider<User2> user2Provider) {
+    instance.user2 = user2Provider.get();
   }
 }
